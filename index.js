@@ -6,6 +6,16 @@ const data = require('./shop-items.json');
 
 const FuzzySearch = require('fuzzy-search');
 
+// CORS
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept'
+  );
+  next();
+});
+
 // all items & categories
 app.get('/', (req, res) => res.json(data));
 
